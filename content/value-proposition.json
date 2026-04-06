@@ -1,14 +1,29 @@
 {
-  "tag": "Our Value Proposition",
+  "tag": "Our Value Proposition.",
   "headline": "The *symbiotic* lifecycle approach",
   "since_year": "since 2007",
   "paragraph_1": "Ladderup was founded on a simple belief: a financial advisor must be as invested in your outcome as you are. Since 2007, we've grown alongside our clients — not as transaction facilitators, but as long-term partners who understand each stage of the business lifecycle.",
   "paragraph_2": "Our approach integrates deep institutional relationships with bespoke advisory. We bring the rigour of a large investment bank and the agility of a boutique — an edge that mid-market India truly needs.",
   "lifecycle_steps": [
-    { "title": "Capital Formation", "description": "Structured equity and debt solutions to fund growth initiatives" },
-    { "title": "M&A & Strategic Transactions", "description": "Buy side, sell side, we bridge advisory for value-accretive deals" },
-    { "title": "Capital Markets & Listings", "description": "IPO, SME and listed market access for sustainable growth" },
-    { "title": "Debt & Structured Finance", "description": "Customised leverage solutions across capital structure" },
-    { "title": "Valuation & Compliance", "description": "SEBI-grade valuations, fairness opinions, and regulatory compliance" }
+    {
+      "title": "Capital Formation",
+      "description": "Structured equity and debt solutions to fund growth initiatives"
+    },
+    {
+      "title": "M&A & Strategic Transactions",
+      "description": "Buy side, sell side, we bridge advisory for value-accretive deals"
+    },
+    {
+      "title": "Capital Markets & Listings",
+      "description": "IPO, SME and listed market access for sustainable growth"
+    },
+    {
+      "title": "Debt & Structured Finance",
+      "description": "Customised leverage solutions across capital structure"
+    },
+    {
+      "title": "Valuation & Compliance",
+      "description": "SEBI-grade valuations, fairness opinions, and regulatory compliance"
+    }
   ]
 }
