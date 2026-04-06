@@ -1,0 +1,24 @@
+{
+  "description": "SEBI-registered investment banking and corporate advisory. Full-spectrum strategic and capital advisory services across equity, debt, M&A, and compliance.",
+  "quick_links": [
+    { "label": "Home", "url": "#" },
+    { "label": "About", "url": "#about" },
+    { "label": "Services", "url": "#services" },
+    { "label": "Investor Charter", "url": "#" }
+  ],
+  "service_links": [
+    { "label": "IPO Advisory", "url": "#" },
+    { "label": "M&A Advisory", "url": "#" },
+    { "label": "Private Equity", "url": "#" },
+    { "label": "Debt Syndication", "url": "#" },
+    { "label": "Valuations", "url": "#" }
+  ],
+  "contact_links": [
+    { "label": "info@ladderup.com", "url": "mailto:info@ladderup.com" },
+    { "label": "Ladderup Investment Banking", "url": "#" },
+    { "label": "Ladderup Financial Planning", "url": "#" },
+    { "label": "Ladderup Wealth Management", "url": "#" }
+  ],
+  "copyright": "© 2025 Ladderup Corporate Advisory. All rights reserved.",
+  "sebi_reg": "SEBI Reg. No: INM000012345"
+}

@@ -1,0 +1,13 @@
+{
+  "label": "Testimonials",
+  "heading": "What our",
+  "heading_highlight": "clients",
+  "heading_line2": "say",
+  "testimonials": [
+    {
+      "quote": "Ladderup's team demonstrated exceptional commitment throughout our capital raise journey. Their deep market knowledge and hands-on approach made all the difference.",
+      "author": "Client, Mid-Market Manufacturing Company",
+      "mandate": "IPO Advisory Mandate"
+    }
+  ]
+}

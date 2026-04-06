@@ -1,0 +1,26 @@
+{
+  "section_label": "Our Offerings",
+  "headline": "Our *capabilities* to coin a statement",
+  "cards": [
+    {
+      "title": "IPO & Capital Market Advisory",
+      "description": "Full cycle capital market access — SME and mainboard IPOs, DRHP, and listing support for companies at all stages.",
+      "icon": "M3 3h18v18H3zM9 9h6v6H9z"
+    },
+    {
+      "title": "M&A Advisory",
+      "description": "Buy side, sell side, and cross-border transaction advisory for value-creating M&A partnerships.",
+      "icon": "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+    },
+    {
+      "title": "Valuation Services",
+      "description": "SEBI-registered valuations for promoter, advisory, ESOP, and fairness opinion mandates.",
+      "icon": "M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"
+    },
+    {
+      "title": "Open Offer & Buyback",
+      "description": "Regulatory-compliant management of open offer, delisting, and share buyback mandates.",
+      "icon": "M4 4h16v16H4zM4 9h16M9 4v16"
+    }
+  ]
+}

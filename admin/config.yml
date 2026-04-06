@@ -1,0 +1,208 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# For local development/testing, uncomment below and comment out git-gateway above:
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://your-ladderup-site.netlify.app
+display_url: https://your-ladderup-site.netlify.app
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+
+  # ═══════ SITE SETTINGS (single file) ═══════
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings.json"
+        fields:
+          - { name: "site_title", label: "Site Title", widget: "string", default: "Ladderup Corporate Advisory" }
+          - { name: "logo", label: "Logo Image", widget: "image" }
+          - { name: "favicon", label: "Favicon", widget: "image", required: false }
+          - label: "Navigation Links"
+            name: "nav_links"
+            widget: "list"
+            fields:
+              - { name: "label", label: "Label", widget: "string" }
+              - { name: "url", label: "URL / Anchor", widget: "string" }
+          - { name: "nav_cta_text", label: "Nav CTA Button Text", widget: "string", default: "Get In Touch" }
+          - { name: "nav_cta_url", label: "Nav CTA Button URL", widget: "string", default: "#contact" }
+
+  # ═══════ HERO SECTION ═══════
+  - name: "hero"
+    label: "Hero Section"
+    files:
+      - name: "hero_content"
+        label: "Hero Content"
+        file: "content/hero.json"
+        fields:
+          - { name: "label", label: "Top Label (e.g. Full Service Investment Bank)", widget: "string" }
+          - { name: "headline_line1", label: "Headline Line 1", widget: "string", default: "Elevating Growth" }
+          - { name: "headline_line2", label: "Headline Line 2", widget: "string", default: "Through" }
+          - { name: "headline_italic", label: "Headline Italic Word", widget: "string", default: "Strategic" }
+          - { name: "headline_line3", label: "Headline Line 3", widget: "string", default: "Advisory" }
+          - { name: "description", label: "Hero Description", widget: "text" }
+          - { name: "sebi_badge_text", label: "SEBI Badge Text", widget: "string", default: "SEBI Registered Merchant Banker" }
+          - { name: "btn_primary_text", label: "Primary Button Text", widget: "string" }
+          - { name: "btn_primary_url", label: "Primary Button URL", widget: "string" }
+          - { name: "btn_secondary_text", label: "Secondary Button Text", widget: "string" }
+          - { name: "btn_secondary_url", label: "Secondary Button URL", widget: "string" }
+          - { name: "stats_title", label: "Stats Card Title", widget: "string" }
+          - { name: "stats_subtitle", label: "Stats Card Subtitle", widget: "string" }
+          - label: "Statistics"
+            name: "stats"
+            widget: "list"
+            max: 4
+            fields:
+              - { name: "number", label: "Number", widget: "string" }
+              - { name: "suffix", label: "Suffix (e.g. +)", widget: "string", required: false }
+              - { name: "label", label: "Label", widget: "string" }
+          - { name: "quote_text", label: "Quote Text", widget: "text" }
+          - { name: "quote_author", label: "Quote Author", widget: "string" }
+
+  # ═══════ VALUE PROPOSITION ═══════
+  - name: "value_proposition"
+    label: "Value Proposition"
+    files:
+      - name: "value_content"
+        label: "Value Proposition Content"
+        file: "content/value-proposition.json"
+        fields:
+          - { name: "tag", label: "Tag Text", widget: "string", default: "Our Value Proposition" }
+          - { name: "headline", label: "Headline (use *word* for italic)", widget: "string" }
+          - { name: "since_year", label: "Since Year", widget: "string", default: "since 2007" }
+          - { name: "paragraph_1", label: "Paragraph 1", widget: "text" }
+          - { name: "paragraph_2", label: "Paragraph 2", widget: "text" }
+          - label: "Lifecycle Steps"
+            name: "lifecycle_steps"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "string" }
+
+  # ═══════ SERVICES ═══════
+  - name: "services"
+    label: "Services"
+    files:
+      - name: "services_content"
+        label: "Services Section"
+        file: "content/services.json"
+        fields:
+          - { name: "section_label", label: "Section Label", widget: "string", default: "Our Offerings" }
+          - { name: "headline", label: "Headline (use *word* for italic)", widget: "string" }
+          - label: "Service Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+              - { name: "icon", label: "Icon SVG Path", widget: "string", required: false, hint: "SVG path data for the icon" }
+
+  # ═══════ ADVISORY SERVICES ═══════
+  - name: "advisory"
+    label: "Advisory Services"
+    files:
+      - name: "advisory_content"
+        label: "Advisory Services Section"
+        file: "content/advisory.json"
+        fields:
+          - { name: "section_label", label: "Section Label", widget: "string", default: "Advisory Services" }
+          - { name: "headline", label: "Headline", widget: "string" }
+          - label: "Advisory Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+          - { name: "cta_text", label: "CTA Button Text", widget: "string", default: "View All Services" }
+          - { name: "cta_url", label: "CTA Button URL", widget: "string", default: "#services" }
+
+  # ═══════ WHY LADDERUP ═══════
+  - name: "why_ladderup"
+    label: "Why Ladderup"
+    files:
+      - name: "why_content"
+        label: "Why Ladderup Section"
+        file: "content/why-ladderup.json"
+        fields:
+          - { name: "section_label", label: "Section Label", widget: "string", default: "Why Ladderup" }
+          - { name: "headline", label: "Headline (use *word* for italic)", widget: "string" }
+          - { name: "market_label", label: "Market Label", widget: "string", default: "India" }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "tagline", label: "Tagline", widget: "string" }
+          - label: "Feature Cards"
+            name: "features"
+            widget: "list"
+            max: 4
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+
+  # ═══════ TESTIMONIALS ═══════
+  - name: "testimonials"
+    label: "Testimonials"
+    label_singular: "Testimonial"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Client Name / Label", widget: "string" }
+      - { name: "quote", label: "Testimonial Quote", widget: "text" }
+      - { name: "author", label: "Author", widget: "string" }
+      - { name: "designation", label: "Designation / Company", widget: "string", required: false }
+      - { name: "mandate_type", label: "Mandate Type", widget: "string", required: false }
+      - { name: "featured", label: "Show on Homepage?", widget: "boolean", default: true }
+
+  # ═══════ CTA / CONTACT ═══════
+  - name: "cta"
+    label: "CTA & Contact"
+    files:
+      - name: "cta_content"
+        label: "CTA Section"
+        file: "content/cta.json"
+        fields:
+          - { name: "headline", label: "Headline", widget: "string", default: "Ready to start a conversation?" }
+          - { name: "subtext", label: "Subtext", widget: "string" }
+          - { name: "btn_text", label: "Button Text", widget: "string", default: "Contact Us" }
+          - { name: "btn_url", label: "Button URL", widget: "string", default: "#contact" }
+
+  # ═══════ FOOTER ═══════
+  - name: "footer"
+    label: "Footer"
+    files:
+      - name: "footer_content"
+        label: "Footer Content"
+        file: "content/footer.json"
+        fields:
+          - { name: "description", label: "Footer Description", widget: "text" }
+          - label: "Quick Links"
+            name: "quick_links"
+            widget: "list"
+            fields:
+              - { name: "label", label: "Label", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
+          - label: "Service Links"
+            name: "service_links"
+            widget: "list"
+            fields:
+              - { name: "label", label: "Label", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
+          - label: "Contact Links"
+            name: "contact_links"
+            widget: "list"
+            fields:
+              - { name: "label", label: "Label", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
+          - { name: "copyright", label: "Copyright Text", widget: "string" }
+          - { name: "sebi_reg", label: "SEBI Registration", widget: "string" }

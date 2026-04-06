@@ -1,0 +1,24 @@
+{
+  "section_label": "Advisory Services",
+  "headline": "Full integrated corporate finance solutions",
+  "cards": [
+    {
+      "title": "Private Equity Syndication",
+      "description": "Growth equity and PE fund raise for mid-market companies across diverse sectors."
+    },
+    {
+      "title": "Project & Structured Finance",
+      "description": "Bespoke structuring and debt syndication for large infrastructure and project mandates."
+    },
+    {
+      "title": "Debt Resolution & Recap",
+      "description": "Distress, restructuring, settlement, negotiation, and recapitalisation advisory for turnaround situations."
+    },
+    {
+      "title": "Corporate Finance Advisory",
+      "description": "End to end transaction advisory including financial modelling, due diligence, and negotiations."
+    }
+  ],
+  "cta_text": "View All Services",
+  "cta_url": "#services"
+}

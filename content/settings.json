@@ -1,0 +1,12 @@
+{
+  "site_title": "Ladderup Corporate Advisory",
+  "logo": "/images/logo.png",
+  "nav_links": [
+    { "label": "About", "url": "#about" },
+    { "label": "Services", "url": "#services" },
+    { "label": "Advisory", "url": "#advisory" },
+    { "label": "Leadership", "url": "#why" }
+  ],
+  "nav_cta_text": "Get In Touch",
+  "nav_cta_url": "#contact"
+}

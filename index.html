@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ladderup Corporate Advisory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+  :root {
+    --orange: #E8652D; --orange-light: #F28A5F; --orange-dark: #C74E1A;
+    --white: #FFFFFF; --off-white: #FAF7F4;
+    --grey-100: #F5F0EB; --grey-200: #E8E0D8; --grey-300: #C4B8AC;
+    --grey-400: #9A8E82; --grey-500: #6E6259; --grey-600: #4A4038;
+    --grey-700: #3A322B; --warm-bg: #F7F3EF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;color:var(--grey-600);background:var(--white);overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif}
+
+  nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--grey-200);transition:all .4s}
+  nav.scrolled{padding:14px 60px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+  .nav-logo img{height:38px;width:auto;display:block}
+  .nav-links{display:flex;gap:36px;align-items:center}
+  .nav-links a{font-size:.85rem;font-weight:500;color:var(--grey-500);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .3s}
+  .nav-links a:hover{color:var(--orange)}
+  .nav-cta{background:var(--orange)!important;color:var(--white)!important;padding:10px 24px!important;border-radius:6px;font-size:.8rem!important;letter-spacing:.08em!important;transition:background .3s!important}
+  .nav-cta:hover{background:var(--orange-dark)!important}
+
+  .hero{min-height:100vh;display:flex;align-items:center;padding:140px 60px 80px;background:linear-gradient(135deg,var(--off-white) 0%,var(--white) 50%,var(--grey-100) 100%);position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(232,101,45,.08) 0%,transparent 70%);border-radius:50%}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1300px;margin:0 auto;width:100%;align-items:center;position:relative;z-index:2}
+  .hero-label{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  .hero-label::before{content:'';width:30px;height:2px;background:var(--orange)}
+  .hero h1{font-size:3.8rem;line-height:1.08;color:var(--grey-700);margin-bottom:24px;letter-spacing:-.02em}
+  .hero h1 em{font-style:italic;color:var(--orange)}
+  .hero-sub{font-size:1.05rem;line-height:1.7;color:var(--grey-400);max-width:480px;margin-bottom:20px}
+  .hero-sebi{display:inline-flex;align-items:center;gap:8px;background:var(--grey-100);padding:8px 16px;border-radius:6px;font-size:.8rem;color:var(--grey-500);font-weight:500;margin-bottom:32px;border-left:3px solid var(--orange)}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+  .btn-primary{background:var(--orange);color:var(--white);padding:14px 32px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .3s;display:inline-block}
+  .btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,101,45,.3)}
+  .btn-outline{background:transparent;color:var(--grey-600);padding:14px 32px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:2px solid var(--grey-300);cursor:pointer;transition:all .3s;display:inline-block}
+  .btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+
+  .hero-stats-card{background:var(--white);border-radius:16px;padding:48px;box-shadow:0 20px 60px rgba(0,0,0,.06);border:1px solid var(--grey-200);position:relative}
+  .hero-stats-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--orange-light));border-radius:16px 16px 0 0}
+  .stats-title{font-size:1.1rem;font-weight:600;color:var(--grey-700);margin-bottom:8px}
+  .stats-subtitle{font-size:.85rem;color:var(--grey-400);margin-bottom:36px}
+  .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--orange);line-height:1}
+  .stat-num span{font-size:1.4rem}
+  .stat-label{font-size:.78rem;color:var(--grey-400);margin-top:6px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+  .stats-quote{margin-top:32px;padding-top:28px;border-top:1px solid var(--grey-200);font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--grey-500);line-height:1.6}
+  .stats-quote strong{display:block;font-style:normal;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--grey-700);margin-top:10px;font-weight:600}
+
+  section{padding:100px 60px}
+  .section-label{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+  .section-title{font-size:2.6rem;color:var(--grey-700);margin-bottom:20px;letter-spacing:-.02em;line-height:1.15}
+  .section-title em{font-style:italic;color:var(--orange)}
+
+  .value-prop{background:var(--warm-bg)}
+  .value-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .value-tag{display:inline-block;border:2px solid var(--orange);padding:10px 20px;border-radius:6px;font-size:.85rem;font-weight:600;color:var(--orange);margin-bottom:32px;letter-spacing:.04em}
+  .value-left h2{font-size:2.8rem;color:var(--grey-700);line-height:1.15;margin-bottom:10px}
+  .value-left h2 em{color:var(--orange);font-style:italic}
+  .value-since{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--grey-400);margin-bottom:28px}
+  .value-text{font-size:.95rem;line-height:1.8;color:var(--grey-500)}
+  .value-text p{margin-bottom:16px}
+  .lifecycle-item{display:flex;align-items:flex-start;gap:20px;padding:22px 0;border-bottom:1px solid var(--grey-200)}
+  .lifecycle-item:last-child{border-bottom:none}
+  .lifecycle-num{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--orange);font-weight:700;min-width:28px}
+  .lifecycle-item h4{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--grey-700);margin-bottom:4px}
+  .lifecycle-item p{font-size:.82rem;color:var(--grey-400);line-height:1.5}
+
+  .services{background:var(--white)}
+  .services-header{max-width:1300px;margin:0 auto 60px;text-align:center}
+  .services-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .service-card{background:var(--off-white);border-radius:12px;padding:36px 28px;border:1px solid var(--grey-200);transition:all .4s;position:relative;overflow:hidden}
+  .service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+  .service-card:hover::before{transform:scaleX(1)}
+  .service-card:hover{background:var(--white);box-shadow:0 12px 40px rgba(0,0,0,.06);transform:translateY(-4px)}
+  .service-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--orange),var(--orange-light));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .service-icon svg{width:24px;height:24px;fill:none;stroke:var(--white);stroke-width:1.5}
+  .service-card h4{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;color:var(--grey-700);margin-bottom:10px;line-height:1.3}
+  .service-card p{font-size:.82rem;line-height:1.6;color:var(--grey-400)}
+
+  .advisory{background:var(--grey-100)}
+  .advisory-inner{max-width:1300px;margin:0 auto}
+  .advisory-header{margin-bottom:50px}
+  .advisory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:48px}
+  .advisory-card{background:var(--white);border-radius:12px;padding:32px 24px;border:1px solid var(--grey-200);text-align:center;transition:all .4s}
+  .advisory-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.06)}
+  .advisory-icon{width:56px;height:56px;margin:0 auto 18px;background:var(--off-white);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--orange-light)}
+  .advisory-icon svg{width:24px;height:24px;stroke:var(--orange);fill:none;stroke-width:1.8}
+  .advisory-card h4{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:var(--grey-700);margin-bottom:8px}
+  .advisory-card p{font-size:.78rem;color:var(--grey-400);line-height:1.6}
+  .advisory-cta{text-align:center}
+
+  .why-section{background:var(--warm-bg)}
+  .why-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+  .why-left h2{font-size:2.4rem;color:var(--grey-700);margin-bottom:12px;line-height:1.15}
+  .why-left h2 em{color:var(--orange);font-style:italic}
+  .why-market{font-family:'Playfair Display',serif;font-size:2rem;color:var(--orange);margin-bottom:20px}
+  .why-text{font-size:.92rem;color:var(--grey-500);line-height:1.8;margin-bottom:24px}
+  .why-tagline{font-size:1rem;font-weight:600;color:var(--grey-700);padding:16px 0;border-top:2px solid var(--orange);display:inline-block}
+  .why-features{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .why-feature{background:var(--white);border-radius:12px;padding:28px;border:1px solid var(--grey-200);transition:all .3s}
+  .why-feature:hover{border-color:var(--orange-light);box-shadow:0 8px 24px rgba(0,0,0,.04)}
+  .why-feature h4{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--grey-700);margin-bottom:8px}
+  .why-feature p{font-size:.8rem;color:var(--grey-400);line-height:1.6}
+
+  .testimonials{background:var(--white);text-align:center}
+  .testimonials-inner{max-width:1300px;margin:0 auto}
+  .testimonial-card{max-width:700px;margin:48px auto 0;background:var(--off-white);border-radius:16px;padding:48px;border:1px solid var(--grey-200);position:relative}
+  .testimonial-card::before{content:'\201C';font-family:'Playfair Display',serif;font-size:5rem;color:var(--orange-light);position:absolute;top:10px;left:30px;line-height:1;opacity:.5}
+  .testimonial-card p{font-size:1.05rem;line-height:1.8;color:var(--grey-500);font-style:italic;position:relative;z-index:2;margin-bottom:20px}
+  .testimonial-card strong{font-size:.85rem;color:var(--grey-700);font-style:normal}
+  .testimonial-card span{font-size:.78rem;color:var(--grey-400);display:block;margin-top:4px}
+
+  .cta-band{background:linear-gradient(135deg,var(--orange) 0%,var(--orange-dark) 100%);padding:80px 60px;text-align:center;position:relative;overflow:hidden}
+  .cta-band::before{content:'';position:absolute;top:-50%;left:-20%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(255,255,255,.08),transparent 60%)}
+  .cta-band h2{font-size:2.6rem;color:var(--white);margin-bottom:12px;position:relative;z-index:2}
+  .cta-band p{font-size:1rem;color:rgba(255,255,255,.8);margin-bottom:32px;position:relative;z-index:2}
+  .btn-white{background:var(--white);color:var(--orange);padding:14px 36px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-block;position:relative;z-index:2;transition:all .3s}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+
+  footer{background:var(--grey-700);padding:60px;color:var(--grey-300)}
+  .footer-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
+  .footer-brand img{height:44px;width:auto;display:block;margin-bottom:14px;filter:brightness(10)}
+  .footer-brand p{font-size:.82rem;line-height:1.7;color:var(--grey-400)}
+  .footer-col h5{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-300);margin-bottom:18px}
+  .footer-col a{display:block;font-size:.82rem;color:var(--grey-400);text-decoration:none;margin-bottom:10px;transition:color .3s}
+  .footer-col a:hover{color:var(--orange-light)}
+  .footer-bottom{max-width:1300px;margin:36px auto 0;padding-top:24px;border-top:1px solid var(--grey-600);font-size:.75rem;color:var(--grey-500);display:flex;justify-content:space-between}
+
+  .fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+  .fade-up.visible{opacity:1;transform:translateY(0)}
+  .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}
+
+  .site-loading{position:fixed;inset:0;z-index:9999;background:var(--white);display:flex;align-items:center;justify-content:center;transition:opacity .5s}
+  .site-loading.done{opacity:0;pointer-events:none}
+  .loader{width:40px;height:40px;border:3px solid var(--grey-200);border-top-color:var(--orange);border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  @media(max-width:1024px){
+    nav{padding:16px 30px}section{padding:70px 30px}.hero{padding:120px 30px 60px}
+    .hero-grid,.value-grid,.why-inner{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:2.6rem}.services-grid,.advisory-grid{grid-template-columns:1fr 1fr}
+    .why-features{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .nav-links a:not(.nav-cta){display:none}.hero h1{font-size:2rem}.section-title{font-size:2rem}
+    .services-grid,.advisory-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr}
+    .hero-btns{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<div class="site-loading" id="siteLoader"><div class="loader"></div></div>
+
+<nav id="navbar"></nav>
+<section class="hero" id="hero"></section>
+<section class="value-prop" id="about"></section>
+<section class="services" id="services"></section>
+<section class="advisory" id="advisory"></section>
+<section class="why-section" id="why"></section>
+<section class="testimonials" id="testimonials-section"></section>
+<section class="cta-band" id="contact"></section>
+<footer id="footer"></footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CONTENT RENDERER
+   Fetches JSON from /content/ (managed by Decap CMS) and renders
+   the full site. When the client edits via /admin → new JSON is
+   committed → Netlify rebuilds → site updates automatically.
+   ═══════════════════════════════════════════════════════════════ */
+
+async function loadJSON(path) {
+  try {
+    const r = await fetch(path);
+    if (!r.ok) throw new Error(path);
+    return await r.json();
+  } catch(e) { console.warn('CMS:', e.message); return null; }
+}
+
+function italic(s) { return s.replace(/\*([^*]+)\*/g, '<em>$1</em>'); }
+
+async function render() {
+  const [settings, hero, vp, svc, adv, why, cta, footer, testi] = await Promise.all([
+    loadJSON('/content/settings.json'),
+    loadJSON('/content/hero.json'),
+    loadJSON('/content/value-proposition.json'),
+    loadJSON('/content/services.json'),
+    loadJSON('/content/advisory.json'),
+    loadJSON('/content/why-ladderup.json'),
+    loadJSON('/content/cta.json'),
+    loadJSON('/content/footer.json'),
+    loadJSON('/content/testimonials/manufacturing-client.json')
+  ]);
+
+  // NAV
+  if (settings) {
+    const links = settings.nav_links.map(l => `<a href="${l.url}">${l.label}</a>`).join('');
+    document.getElementById('navbar').innerHTML = `
+      <div class="nav-logo"><img src="${settings.logo}" alt="${settings.site_title}"></div>
+      <div class="nav-links">${links}<a href="${settings.nav_cta_url}" class="nav-cta">${settings.nav_cta_text}</a></div>`;
+    document.title = settings.site_title;
+  }
+
+  // HERO
+  if (hero) {
+    const stats = (hero.stats||[]).map(s => `
+      <div class="stat-item"><div class="stat-num">${s.number}<span>${s.suffix||''}</span></div><div class="stat-label">${s.label}</div></div>`).join('');
+    document.getElementById('hero').innerHTML = `
+      <div class="hero-grid">
+        <div class="fade-up">
+          <div class="hero-label">${hero.label}</div>
+          <h1>${hero.headline_line1}<br>${hero.headline_line2} <em>${hero.headline_italic}</em><br>${hero.headline_line3}</h1>
+          <p class="hero-sub">${hero.description}</p>
+          <div class="hero-sebi"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> ${hero.sebi_badge_text}</div>
+          <div class="hero-btns"><a href="${hero.btn_primary_url}" class="btn-primary">${hero.btn_primary_text}</a><a href="${hero.btn_secondary_url}" class="btn-outline">${hero.btn_secondary_text}</a></div>
+        </div>
+        <div class="fade-up delay-2">
+          <div class="hero-stats-card">
+            <div class="stats-title">${hero.stats_title}</div>
+            <div class="stats-subtitle">${hero.stats_subtitle}</div>
+            <div class="stats-grid">${stats}</div>
+            <div class="stats-quote">"${hero.quote_text}"<strong>${hero.quote_author}</strong></div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  // VALUE PROPOSITION
+  if (vp) {
+    const steps = (vp.lifecycle_steps||[]).map((s,i) => `
+      <div class="lifecycle-item"><div class="lifecycle-num">${i+1}</div><div><h4>${s.title}</h4><p>${s.description}</p></div></div>`).join('');
+    document.getElementById('about').innerHTML = `
+      <div class="value-grid">
+        <div class="value-left fade-up">
+          <div class="value-tag">${vp.tag}</div>
+          <h2>${italic(vp.headline)}</h2>
+          <div class="value-since">${vp.since_year}</div>
+          <div class="value-text"><p>${vp.paragraph_1}</p><p>${vp.paragraph_2}</p></div>
+        </div>
+        <div class="value-right fade-up delay-2">${steps}</div>
+      </div>`;
+  }
+
+  // SERVICES
+  if (svc) {
+    const cards = (svc.cards||[]).map((c,i) => `
+      <div class="service-card fade-up delay-${i+1}">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="${c.icon||'M12 2v20'}"/></svg></div>
+        <h4>${c.title}</h4><p>${c.description}</p>
+      </div>`).join('');
+    document.getElementById('services').innerHTML = `
+      <div class="services-header fade-up"><div class="section-label">${svc.section_label}</div><h2 class="section-title">${italic(svc.headline)}</h2></div>
+      <div class="services-grid">${cards}</div>`;
+  }
+
+  // ADVISORY
+  if (adv) {
+    const ac = (adv.cards||[]).map((c,i) => `
+      <div class="advisory-card fade-up delay-${i+1}">
+        <div class="advisory-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+        <h4>${c.title}</h4><p>${c.description}</p>
+      </div>`).join('');
+    document.getElementById('advisory').innerHTML = `
+      <div class="advisory-inner">
+        <div class="advisory-header fade-up"><div class="section-label">${adv.section_label}</div><h2 class="section-title">${adv.headline}</h2></div>
+        <div class="advisory-grid">${ac}</div>
+        <div class="advisory-cta fade-up"><a href="${adv.cta_url}" class="btn-primary">${adv.cta_text}</a></div>
+      </div>`;
+  }
+
+  // WHY LADDERUP
+  if (why) {
+    const feat = (why.features||[]).map(f => `<div class="why-feature"><h4>${f.title}</h4><p>${f.description}</p></div>`).join('');
+    document.getElementById('why').innerHTML = `
+      <div class="why-inner">
+        <div class="why-left fade-up">
+          <div class="section-label">${why.section_label}</div>
+          <h2>${italic(why.headline)}</h2>
+          <div class="why-market">${why.market_label}</div>
+          <p class="why-text">${why.description}</p>
+          <div class="why-tagline">${why.tagline}</div>
+        </div>
+        <div class="why-features fade-up delay-2">${feat}</div>
+      </div>`;
+  }
+
+  // TESTIMONIALS
+  if (testi) {
+    document.getElementById('testimonials-section').innerHTML = `
+      <div class="testimonials-inner fade-up">
+        <div class="section-label">Testimonials</div>
+        <h2 class="section-title">What our <em>clients</em> say</h2>
+        <div class="testimonial-card">
+          <p>${testi.quote}</p>
+          <strong>— ${testi.author}, ${testi.designation||''}</strong>
+          <span>${testi.mandate_type||''}</span>
+        </div>
+      </div>`;
+  }
+
+  // CTA
+  if (cta) {
+    document.getElementById('contact').innerHTML = `
+      <h2>${cta.headline}</h2><p>${cta.subtext}</p>
+      <a href="${cta.btn_url}" class="btn-white">${cta.btn_text}</a>`;
+  }
+
+  // FOOTER
+  if (footer) {
+    const ql = (footer.quick_links||[]).map(l => `<a href="${l.url}">${l.label}</a>`).join('');
+    const sl = (footer.service_links||[]).map(l => `<a href="${l.url}">${l.label}</a>`).join('');
+    const cl = (footer.contact_links||[]).map(l => `<a href="${l.url}">${l.label}</a>`).join('');
+    document.getElementById('footer').innerHTML = `
+      <div class="footer-inner">
+        <div class="footer-brand"><img src="${settings?settings.logo:'/images/logo.png'}" alt="Ladderup"><p>${footer.description}</p></div>
+        <div class="footer-col"><h5>Quick Links</h5>${ql}</div>
+        <div class="footer-col"><h5>Services</h5>${sl}</div>
+        <div class="footer-col"><h5>Contact</h5>${cl}</div>
+      </div>
+      <div class="footer-bottom"><span>${footer.copyright}</span><span>${footer.sebi_reg}</span></div>`;
+  }
+
+  // Animations
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  setTimeout(() => document.getElementById('siteLoader').classList.add('done'), 300);
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Netlify Identity redirect after CMS login
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('init', u => {
+    if (!u) window.netlifyIdentity.on('login', () => { document.location.href = '/admin/'; });
+  });
+}
+
+render();
+</script>
+</body>
+</html>

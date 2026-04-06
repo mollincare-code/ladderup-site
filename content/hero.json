@@ -1,0 +1,23 @@
+{
+  "label": "Full Service Investment Bank",
+  "headline_line1": "Elevating Growth",
+  "headline_line2": "Through",
+  "headline_italic": "Strategic",
+  "headline_line3": "Advisory",
+  "description": "End to end advisory services across Capital Markets — Equity & Debt, Private & Public, to meet both organic and inorganic (M&A) growth objectives.",
+  "sebi_badge_text": "SEBI Registered Merchant Banker",
+  "btn_primary_text": "Explore Our Capabilities",
+  "btn_primary_url": "#services",
+  "btn_secondary_text": "Our Story",
+  "btn_secondary_url": "#about",
+  "stats_title": "150+ years of Leadership Experience",
+  "stats_subtitle": "Collective expertise across our senior team",
+  "stats": [
+    { "number": "270", "suffix": "+", "label": "Transactions" },
+    { "number": "180", "suffix": "+", "label": "Advisory Mandates" },
+    { "number": "20", "suffix": "+", "label": "Years Experience" },
+    { "number": "4", "suffix": "", "label": "Continents" }
+  ],
+  "quote_text": "We don't just advise — we partner through to full bloom of your capital-driven growth journey.",
+  "quote_author": "— Founder and Chairman"
+}
